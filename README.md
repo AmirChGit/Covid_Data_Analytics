@@ -1,4 +1,7 @@
 # COVID-19 Data Analysis and Visualization
+![image](https://github.com/user-attachments/assets/605c22f5-0740-4b38-8738-43f64d5d384a)
+
+https://public.tableau.com/app/profile/amir2848/viz/CovidDashboard_16529145866060/Dashboard1
 
 ## Project Overview
 This project combines data analysis and visualization skills to explore the impact of the COVID-19 pandemic. Using SQL Server and Tableau, we perform data cleaning, querying, and advanced analysis to uncover trends and insights, which are then visualized through interactive dashboards. This comprehensive project demonstrates essential data analyst skills, including ETL (Extract, Transform, Load), data manipulation, and effective data presentation.
