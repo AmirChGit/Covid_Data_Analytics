@@ -1,78 +1,98 @@
-# COVID Data Analysis Project
+# COVID-19 Data Analysis and Visualization
 
-## Description
-This project demonstrates a comprehensive approach to building a data analysis portfolio, focusing on analyzing COVID-19 data using SQL, Tableau, and Python (pandas). It walks through the process of creating a database, importing data from Excel files, cleaning and querying the data using SQL, and visualizing it in Tableau. The project showcases skills essential for a data analyst, including ETL (Extract, Transform, Load) processes and data visualization techniques.
+## Project Overview
+This project combines data analysis and visualization skills to explore the impact of the COVID-19 pandemic. Using SQL Server and Tableau, we perform data cleaning, querying, and advanced analysis to uncover trends and insights, which are then visualized through interactive dashboards. This comprehensive project demonstrates essential data analyst skills, including ETL (Extract, Transform, Load), data manipulation, and effective data presentation.
 
 ## Project Outline
-The goal of this project is to import COVID-19 data into a SQL Server database, perform data analysis using SQL, and create visualizations in Tableau to extract meaningful insights. It also covers advanced techniques for handling and preparing data for analysis.
+The project consists of two main phases:
+1. **SQL Data Analysis**: Creating a SQL Server database, importing data, cleaning it, and performing complex queries.
+2. **Tableau Visualization**: Building insightful visualizations from the cleaned data and assembling them into a dashboard for interactive exploration.
 
-## Steps Involved
+---
+
+## Phase 1: SQL Data Analysis
 
 ### 1. Data Preparation
 - **Data Sources**: Use two Excel files:
   - `covid_deaths.xlsx`
   - `covid_vaccinations.xlsx`
-- **Important**: The files should be saved as Excel workbooks, not CSV files, to avoid errors during import.
+- **Important**: Ensure the Excel files are saved as workbooks, not CSV files, to prevent import errors.
 
 ### 2. Creating the SQL Database
-1. **Set Up SQL Server**: Open Microsoft SQL Server and launch the Import and Export wizard.
-2. **Select Data Source**: Choose the Excel files as the data source.
-3. **Destination Configuration**: Set the SQL Server database as the destination.
-4. **Verify Server Name**: Ensure the server name matches the SQL Server instance to avoid import errors.
-5. **Import Data**: Follow the wizard's steps to import the data into new tables.
+1. **Set Up SQL Server**: Open SQL Server and use the Import and Export wizard.
+2. **Data Source Selection**: Choose the Excel files as the source.
+3. **Database Configuration**: Set up a new SQL Server database as the destination.
+4. **Verify Server Name**: Ensure it matches your SQL Server instance to avoid import issues.
+5. **Data Import**: Complete the import to create tables for deaths and vaccinations data.
 
-### 3. Basic SQL Queries
-- **Validate Data**: Perform simple SELECT queries to ensure the data has been imported correctly.
-- **Filtering**: Use queries to filter data by location and date.
-- **Using Comments**: Add comments in SQL queries for better understanding and maintainability.
+### 3. Data Validation and Basic Queries
+- **Initial Queries**: Run SELECT statements to confirm data import.
+- **Filtering and Sorting**: Use WHERE and ORDER BY clauses to filter data by location and date.
+- **Use of Comments**: Add comments in SQL scripts to document your code.
 
-### 4. Data Analysis Using SQL
-- **Select Specific Columns**: Query the tables to retrieve only the necessary columns.
-- **Filter and Sort Data**: Use WHERE clauses and ORDER BY to sort and filter data efficiently.
-- **Grouping Data**: Use GROUP BY to summarize data by continent or country.
+### 4. Advanced SQL Analysis
+- **Data Joins**: Join tables to combine deaths and vaccination data for deeper analysis.
+- **Grouping and Aggregation**: Use GROUP BY to analyze data by continent and calculate global statistics.
+- **CTEs and Temporary Tables**: Simplify complex queries and improve performance.
+- **Creating Views**: Store results in views for easy access during visualization.
 
-### 5. Advanced SQL Techniques
-- **Data Joins**: Combine tables (e.g., deaths and vaccinations) to create a comprehensive dataset.
-- **Common Table Expressions (CTEs)**: Simplify complex queries and improve readability.
-- **Temporary Tables**: Store and manipulate intermediate data for further analysis.
-- **Views**: Create views to save frequently used queries for future reference.
+### 5. ETL and Data Cleaning
+- **Handling Null Values**: Address inconsistencies and ensure data integrity.
+- **Global Metrics Calculation**: Compute total cases, death percentages, and other key figures using SQL aggregate functions.
+- **Data Preparation for Visualization**: Create structured data outputs for Tableau.
 
-### 6. ETL Process and Data Cleaning
-- **Address Data Inconsistencies**: Filter out or adjust inaccurate data, such as entries labeled "world" or "continent".
-- **Calculate Global Metrics**: Use aggregate functions to calculate total cases, death percentages, and other key metrics.
-- **Join and Merge Data**: Integrate vaccination data with death counts to analyze correlations.
+---
 
-### 7. Calculating Vaccination Metrics
-- **Rolling Count**: Define a new column for "new vaccinations per day" and use the `SUM` function with the `PARTITION BY` clause to calculate a rolling total.
-- **Percentage Vaccinated**: Calculate the percentage of the population vaccinated by dividing the rolling count by the total population and multiplying by 100.
-- **Methods**: Implement both CTEs and temporary tables for calculating metrics, exploring their advantages.
+## Phase 2: Tableau Visualization
 
-### 8. Visualization in Tableau
-- **Import Data**: Load the cleaned and processed data into Tableau.
-- **Create Dashboards**: Develop interactive visualizations to explore data trends, such as vaccination rates and death statistics.
-- **Drill-Down Analysis**: Break down data from global to country-specific insights.
-- **Highlight Key Metrics**: Use calculated fields to display essential information clearly.
+### 1. Preparing Data for Tableau
+- **Cleaning Data**: Ensure there are no null values in the Excel sheets. Convert nulls to zeros to maintain numeric data types.
+- **Separate Data Sources**: Import each Excel sheet into Tableau as a separate data source. This allows for more flexibility in visualization.
+
+### 2. Building Visualizations
+- **Global Summary Table**: 
+  - **Description**: A table showing total cases, total deaths, and average death percentage.
+  - **Formatting**: Customize with color changes, size adjustments, and gridlines for clarity.
+  - **Number Formatting**: Ensure precise representation with two decimal places for percentages.
+
+- **Bar Graph of Global Death Counts by Continent**: 
+  - **Steps**: Drag "Continent" to Rows and "Total Deaths" to Columns.
+  - **Customization**: Sort bars in descending order, adjust axis labels, and rename fields for clarity.
+
+- **Map Visualization**:
+  - **Setup**: Convert "Location" to a geographic role (Country/Region) to generate longitude and latitude.
+  - **Enhancements**: Add infection rates, customize colors, adjust map backgrounds, and label countries.
+  - **Data Representation**: Ensure colors are intuitive and convey data effectively.
+
+- **Time-Series Chart**:
+  - **Objective**: Track the percentage of the population infected over time.
+  - **Implementation**: Add "Date" to Columns and "Infection Percentage" to Rows. Modify the date display to show yearly data.
+  - **Forecasting**: Add predictive elements to estimate future infection trends based on historical data.
+
+### 3. Creating the Tableau Dashboard
+- **Combining Visualizations**: Arrange the bar graph, map, and time-series chart on a single dashboard.
+- **Interactive Elements**: Add filters and legends to enable users to explore the data dynamically.
+- **Design Considerations**: Optimize layout and colors to enhance user experience and data comprehension.
+
+---
 
 ## Key Concepts and Techniques
-- **SQL**: Master basic and advanced SQL concepts, including SELECT, WHERE, JOIN, GROUP BY, CTEs, and views.
-- **ETL**: Perform data cleaning and transformation efficiently.
-- **Data Visualization**: Use Tableau to present data insights effectively.
-- **Python (pandas)**: Automate data cleaning and analysis for efficiency (future scope).
+- **SQL**: Master data querying, joins, CTEs, and views for efficient data manipulation.
+- **Data Cleaning**: Handle null values and inconsistencies for accurate analysis.
+- **Tableau**: Create interactive and visually appealing dashboards that communicate insights effectively.
+- **ETL Process**: Import and transform data, ensuring it is analysis-ready.
+
+---
 
 ## Best Practices
-- **Commenting Code**: Use comments in SQL scripts to explain the purpose of each query.
-- **Data Validation**: Always validate data after import and transformation.
-- **Optimized Queries**: Write efficient queries to handle large datasets.
-
-## Troubleshooting Tips
-- **Import Issues**: Double-check the server name and data source format if errors occur.
-- **Data Inconsistencies**: Use filters to correct or exclude problematic records.
-- **Efficient SQL**: Refactor complex queries to improve performance.
+- **SQL Queries**: Write clean and efficient queries, adding comments for documentation.
+- **Data Validation**: Always check for accuracy after each transformation step.
+- **Visualization**: Choose colors and formats that enhance data interpretation.
 
 ## Future Enhancements
-- **Automate with Python**: Use pandas to automate the data cleaning process.
-- **Machine Learning**: Apply machine learning models to predict future trends.
-- **Broader Analysis**: Expand the dataset to include more variables for comprehensive analysis.
+- **Automate Data Cleaning**: Use Python and pandas for more efficient data processing.
+- **Machine Learning**: Incorporate predictive models for deeper insights.
+- **Expand Analysis**: Include additional datasets for a broader perspective.
 
 ## Conclusion
-This project illustrates the end-to-end process of analyzing real-world data using SQL, Tableau, and Python. It highlights the importance of data cleaning, querying, and visualization in deriving actionable insights from complex datasets.
+This project illustrates how to leverage SQL and Tableau to analyze and visualize real-world data. It highlights the entire data analysis workflow, from data import and cleaning to creating interactive dashboards, demonstrating essential data analyst skills.
