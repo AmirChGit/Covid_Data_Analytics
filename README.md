@@ -1,4 +1,4 @@
-# Data Analyst Portfolio Project
+# COVID Data Analysis Project
 
 ## Description
 This project demonstrates a comprehensive approach to building a data analysis portfolio, focusing on analyzing COVID-19 data using SQL, Tableau, and Python (pandas). It walks through the process of creating a database, importing data from Excel files, cleaning and querying the data using SQL, and visualizing it in Tableau. The project showcases skills essential for a data analyst, including ETL (Extract, Transform, Load) processes and data visualization techniques.
